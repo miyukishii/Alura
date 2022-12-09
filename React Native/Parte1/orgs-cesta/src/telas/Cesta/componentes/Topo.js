@@ -6,10 +6,10 @@ import Texto from '../../../Componentes/Texto';
 
 const width = Dimensions.get('screen').width;
 
-function Topo() {
+function Topo({titulo}) {
   return <>
     <Image source={topo} style={estilos.topo} />
-    <Texto style={estilos.titulo}>Detalhes da cesta</Texto>
+    <Texto style={estilos.titulo}>{titulo}</Texto>
   </>
 }
 

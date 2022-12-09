@@ -22,3 +22,17 @@
 // --> expo init <nome-projeto>
 // --> cd <nome-projeto>
 // --> npm start      // Para startar o servidor
+
+// Os mocks na programação geralmente são utilizados em testes automatizados como forma de substituir as funções originais para que os dados reais não sejam afetados pelos testes.
+
+// Button:
+// Aprendemos a usar o Button, que é um botão simples e com pouca customização.
+
+// Botão Customizado:
+// Com os componentes TouchableOpacity, TouchableWithoutFeesback, criamos botões muito mais customizados.
+
+// ScrollView:
+// Aprendemos a usar a ScrollView para permitir rolagem na tela, desde que não usando FlatList, pois há incompatibilidades entre esses dois componentes.
+
+// FlatList:
+// Aprendemos a otimizar listas e fazer a rolagem da tela exclusivamente com o FlatList.

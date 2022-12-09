@@ -1,17 +1,28 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import { FlatList, View, StyleSheet, ScrollView } from 'react-native';
+import Texto from '../../Componentes/Texto';
 
 import Detalhes from './componentes/Detalhes';
+import Item from './componentes/Item';
 import Topo from './componentes/Topo';
 
-function Cesta() {
-  return <SafeAreaView>
-    <Topo />
-
-    <View style={estilos.cesta}>
-      <Detalhes />
-    </View>
-  </SafeAreaView>
+function Cesta({topo, detalhes, itens}) {
+  return <>
+    <FlatList
+      data={itens.lista}
+      renderItem={Item}
+      keyExtractor={({ nome }) => nome }
+      ListHeaderComponent={ () => {
+        return <>
+          <Topo {...topo}/>
+          <View style={estilos.cesta}>
+            <Detalhes {...detalhes}/>
+            <Texto style={estilos.titulo}>{itens.titulo}</Texto>
+          </View>
+        </>
+      }}
+    />
+  </>
 }
 
 const estilos = StyleSheet.create({
@@ -19,6 +30,14 @@ const estilos = StyleSheet.create({
       paddingVertical: 8,
       paddingHorizontal: 16,
     },
+  titulo: {
+    color: '#464646',
+    fontSize: 20,
+    lineHeight: 32,
+    fontWeight: 'bold',
+    marginTop: 32,
+    marginBottom: 8,
+  },
 })
 
 export default Cesta;
