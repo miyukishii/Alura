@@ -46,9 +46,11 @@ const estilos = StyleSheet.create({
     fontWeight: 'bold',
     lineHeight: 42,
     fontSize: 42,
+    color: '#464646',
   },
   subtitle: {
     fontSize: 16,
     lineHeight: 26,
+    color: '#A3A3A3',
   },
 });
