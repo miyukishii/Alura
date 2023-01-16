@@ -14,4 +14,5 @@
 // 4 - acessas telas por meio de url (deep link)
 
 // Vamos utilizar a biblioteca React Navigation
+// para utilizar navegação em stack --> npm install @react-navigation/native-stack
 
