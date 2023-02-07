@@ -1,0 +1,8 @@
+Vue.js é uma frameork já consolidado no mercado.
+É um framework Javascript desenvolvido para construir interfaces de usuário.
+Se baseia em HTML, CSS e JS.
+Na versão 3 (lançada em 2020), o suporte a TS ficou ainda melhor.
+
+Preparo de ambiente ~~
+comando: vue create <nome-projeto>
+opções de criação: - Babel, Typescript, Router, Vuex (gerenciador de estado global)
