@@ -6,3 +6,9 @@ Na versão 3 (lançada em 2020), o suporte a TS ficou ainda melhor.
 Preparo de ambiente ~~
 comando: vue create <nome-projeto>
 opções de criação: - Babel, Typescript, Router, Vuex (gerenciador de estado global)
+
+Utilizaremos a biblioteca CSS Bulma
+https://bulma.io/
+
+Utilizaremos ainda o Font-awesome para icones
+https://www.npmjs.com/package/@fortawesome/fontawesome-free
