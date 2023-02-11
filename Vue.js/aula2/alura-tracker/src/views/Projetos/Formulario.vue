@@ -1,7 +1,5 @@
 <template>
-    <section class="projetos">
-      <h1 class="title">Projetos</h1>
-  
+    <section>
       <form @submit.prevent="salvar">
         <div class="field">
           <label for="nomeDoProjeto" class="label"> Nome do Projeto </label>
@@ -16,13 +14,16 @@
   
         <button class="button" type="submit">Salvar</button>
       </form>
-  
     </section>
   </template>
   
   <script lang="ts">
   import { defineComponent } from "vue";
   import { useStore } from "@/store";
+  import {ADICIONA_PROJETO, ALTERA_PROJETO} from '@/store/mutation-types';
+import { TipoNotificacao } from "@/interfaces/INotification";
+// import { notificacaoMixin } from '@/mixins/notificar';
+import useNotificador from '@/hooks/notificador';
   
   export default defineComponent({
     name: "FormularioApp",
@@ -42,32 +43,33 @@
         nomeDoProjeto: "",
       };
     },
+    // mixins: [
+    //   notificacaoMixin
+    // ],
     methods: {
       salvar(): void {
         if(this.id) {
-          this.store.commit('ALTERA_PROJETO', {
+          this.store.commit(ALTERA_PROJETO, {
             id: this.id,
             name: this.nomeDoProjeto
           });
         } else {
-          this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto);
+          this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto);
         }
         this.nomeDoProjeto = "";
+        this.notificar(TipoNotificacao.SUCESSO, 'Novo projeto foi salvo.', 'Seu projeto já está disponível');
         this.$router.push('/projetos');
       },
     },
     setup () {
       const store = useStore();
+      const { notificar } = useNotificador();
       return {
         store,
+        notificar,
       }
     }
   });
   </script>
-  
-  <style scoped>
-  .projetos {
-    padding: 1.25rem;
-  }
-  </style>
+
   

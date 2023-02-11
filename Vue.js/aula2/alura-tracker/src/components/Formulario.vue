@@ -43,6 +43,8 @@ import { useStore } from "vuex";
 import Temporizador from "./Temporizador.vue";
 
 import { key } from "@/store";
+import { TipoNotificacao } from "@/interfaces/INotification";
+import { NOTIFICAR } from "@/store/mutation-types";
 
 export default defineComponent({
   name: "FormularioTarefa",
@@ -56,17 +58,27 @@ export default defineComponent({
   },
   methods: {
     finalizarTarefa(tempoDecorrido: number): void {
-      this.$emit("aoSalvarTarefa", {
+      if (this.idProjeto === '') {
+        this.store.commit(NOTIFICAR, {
+          title: 'Nova tarefa não pôde ser salva',
+          text: 'Por favor, selecione um projeto para esta tarefa',
+          type: TipoNotificacao.FALHA,
+          id: new Date().getTime()
+        });
+      } else {
+        this.$emit("aoSalvarTarefa", {
         duracaoEmSegundos: tempoDecorrido,
         descricao: this.descricao,
         projeto: this.projetos.find((proj) => proj.id === this.idProjeto)
       });
       this.descricao = "";
+      }
     },
   },
   setup() {
     const store = useStore(key);
     return {
+      store,
       projetos: computed(() => store.state.projetos),
     };
   },
