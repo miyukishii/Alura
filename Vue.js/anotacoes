@@ -12,3 +12,13 @@ https://bulma.io/
 
 Utilizaremos ainda o Font-awesome para icones
 https://www.npmjs.com/package/@fortawesome/fontawesome-free
+
+
+Instalar Vue-router
+npm i vue-router@4
+<router-link> é utilizado no lugar da tag <a> para criação de links.
+<router-view> irá renderizar o componente que corresponde a URL.
+
+Instalar o VueX - como gerenciador de estado global dentro da aplicação.
+npm i vuex@next
+criar uma pasta em src, chamada store (nome comumente dado quanto está tratando de estado com vuex)
