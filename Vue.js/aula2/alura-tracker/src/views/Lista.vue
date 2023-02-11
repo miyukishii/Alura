@@ -24,6 +24,11 @@
                   <i class="fas fa-pencil-alt"></i>
                 </span>
               </router-link>
+              <button class="button ml-2 is-danger" type="button" @click="removerProjeto(projeto.id)">
+                <span class="icon is-small">
+                  <i class="fas fa-trash"></i>
+                </span>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -35,12 +40,19 @@
   import { defineComponent } from "vue";
   import { useStore } from "@/store";
   import { computed } from "@vue/reactivity";
+  import {EXCLUIR_PROJETO} from '@/store/mutation-types';
   
   export default defineComponent({
     name: "ListApp",
+    methods: {
+      removerProjeto (id: string): void {
+        this.store.commit(EXCLUIR_PROJETO, id);
+      }
+    },
     setup() {
       const store = useStore();
       return {
+        store,
         projetos: computed(() => store.state.projetos),
       };
     },
