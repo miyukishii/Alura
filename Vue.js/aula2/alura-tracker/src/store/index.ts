@@ -1,11 +1,12 @@
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
 import { InjectionKey } from "vue";
 
-import { INotification, TipoNotificacao } from "./../interfaces/INotification";
+import { INotification } from "./../interfaces/INotification";
 import {
   ALTERA_PROJETO,
   EXCLUIR_PROJETO,
   ADICIONA_PROJETO,
+  NOTIFICAR,
 } from "./mutation-types";
 import IProjeto from "@/interfaces/IProjeto";
 
@@ -19,26 +20,7 @@ export const key: InjectionKey<Store<Estado>> = Symbol();
 export const store = createStore<Estado>({
   state: {
     projetos: [],
-    notificacoes: [
-      {
-        id: 1,
-        text: "Uma notificação de sucesso",
-        title: "sucesso",
-        type: TipoNotificacao.SUCESSO,
-      },
-      {
-        id: 2,
-        text: "Uma notificação de atenção",
-        title: "atenção",
-        type: TipoNotificacao.ATENCAO,
-      },
-      {
-        id: 3,
-        text: "Uma notificação de falha",
-        title: "falha",
-        type: TipoNotificacao.FALHA,
-      },
-    ],
+    notificacoes: [],
   },
   mutations: {
     // Somente mutations podem, de fato, alterar o estado da aplicação.
@@ -56,6 +38,13 @@ export const store = createStore<Estado>({
     [EXCLUIR_PROJETO](state, id: string) {
       state.projetos = state.projetos.filter((proj) => proj.id !== id);
     },
+    [NOTIFICAR] (state, novaNotificacao: INotification) {
+      state.notificacoes.push(novaNotificacao);
+
+      setTimeout(() => {
+        state.notificacoes = state.notificacoes.filter((notificacao) => notificacao.id !== novaNotificacao.id);
+      }, 2000)
+    }
   },
 });
 

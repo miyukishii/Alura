@@ -22,3 +22,5 @@ npm i vue-router@4
 Instalar o VueX - como gerenciador de estado global dentro da aplicação.
 npm i vuex@next
 criar uma pasta em src, chamada store (nome comumente dado quanto está tratando de estado com vuex)
+
+Utilização de mixin -> reutilização de código, seja ela qualquer porção do nosso componente.
