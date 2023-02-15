@@ -9,7 +9,7 @@ import {
   NOTIFICAR,
   DEFINIR_PROJETOS,
 } from "./mutation-types";
-import { OBTER_PROJETOS } from './actions-types';
+import { OBTER_PROJETOS, CADASTRAR_PROJETOS, ALTERAR_PROJETOS, REMOVER_PROJETOS } from './actions-types';
 import IProjeto from "@/interfaces/IProjeto";
 import http from '@/http';
 
@@ -56,6 +56,18 @@ export const store = createStore<Estado>({
     [OBTER_PROJETOS]({ commit }) {
       http.get('projetos')
         .then(response => commit(DEFINIR_PROJETOS, response.data))
+    },
+    [CADASTRAR_PROJETOS](contexto, nomeDoProjeto: string) {
+      return http.post('projetos', {
+        name: nomeDoProjeto
+      })
+    },
+    [ALTERAR_PROJETOS](contexto, projeto: IProjeto) {
+      return http.put(`projetos/${projeto.id}`, projeto)
+    },
+    [REMOVER_PROJETOS]({ commit }, id: string) {
+      return http.delete(`projetos/${id}`)
+        .then(() => commit(EXCLUIR_PROJETO, id))
     },
   }
 });
