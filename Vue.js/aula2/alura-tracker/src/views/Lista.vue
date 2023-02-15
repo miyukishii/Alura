@@ -41,6 +41,7 @@
   import { useStore } from "@/store";
   import { computed } from "@vue/reactivity";
   import {EXCLUIR_PROJETO} from '@/store/mutation-types';
+  import { OBTER_PROJETOS } from "@/store/actions-types";
   
   export default defineComponent({
     name: "ListApp",
@@ -51,6 +52,7 @@
     },
     setup() {
       const store = useStore();
+      store.dispatch(OBTER_PROJETOS);
       return {
         store,
         projetos: computed(() => store.state.projetos),

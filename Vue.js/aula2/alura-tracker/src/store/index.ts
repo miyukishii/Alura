@@ -7,8 +7,11 @@ import {
   EXCLUIR_PROJETO,
   ADICIONA_PROJETO,
   NOTIFICAR,
+  DEFINIR_PROJETOS,
 } from "./mutation-types";
+import { OBTER_PROJETOS } from './actions-types';
 import IProjeto from "@/interfaces/IProjeto";
+import http from '@/http';
 
 interface Estado {
   projetos: IProjeto[],
@@ -38,6 +41,9 @@ export const store = createStore<Estado>({
     [EXCLUIR_PROJETO](state, id: string) {
       state.projetos = state.projetos.filter((proj) => proj.id !== id);
     },
+    [DEFINIR_PROJETOS](state, projetos: IProjeto[]) {
+      state.projetos = projetos;
+    },
     [NOTIFICAR] (state, novaNotificacao: INotification) {
       state.notificacoes.push(novaNotificacao);
 
@@ -46,6 +52,12 @@ export const store = createStore<Estado>({
       }, 2000)
     }
   },
+  actions: {
+    [OBTER_PROJETOS]({ commit }) {
+      http.get('projetos')
+        .then(response => commit(DEFINIR_PROJETOS, response.data))
+    },
+  }
 });
 
 export function useStore(): Store<Estado> {
