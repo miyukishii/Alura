@@ -24,3 +24,7 @@ npm i vuex@next
 criar uma pasta em src, chamada store (nome comumente dado quanto está tratando de estado com vuex)
 
 Utilização de mixin -> reutilização de código, seja ela qualquer porção do nosso componente.
+
+Para utilizar uma API falsa, utilizaremos o Json.server.
+https://www.npmjs.com/package/json-server
+ a premissa do json-server, ele consegue emular, e muito bem, o funcionamento de APIs REST.
