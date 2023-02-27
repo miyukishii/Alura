@@ -1,0 +1,29 @@
+.secao-horizontal .cartao {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 1.25rem;
+}
+
+/* A propriedade grid-area é um compilado de diversas propriedades que definem a localização de um Grid Item no layout, a ordem correta da abreviação é: grid-row-start grid-column-start grid-row-end grid-column-end, respectivamente. */
+
+.secao-horizontal .cartao__imagem {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  /* grid-area: 1/1/4/2; */
+}
+
+.secao-horizontal .cartao__botao {
+  grid-column: 3/4;
+  grid-row: 1/4;
+}
+
+.cartao__titulo {
+  align-self: end;
+}
+
+.secao-vertical .cartao {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
