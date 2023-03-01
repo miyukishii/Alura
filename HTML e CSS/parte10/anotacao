@@ -1,0 +1,19 @@
+Sass é um pré-processador (Syntactically Awesome Style Sheets).
+È uma ferramenta de software que cria arquivos CSS.
+Adiciona recursos que não existem no CSS.
+Com Sass podemos criar funções.
+
+Vantagens:
+- Criar variáveis;
+- Classes aninhadas;
+- Quebrar arquivos de estilos em diversos arquivos;
+- Importação;
+- Mixins para reaproveitamento;
+- Operações matemáticas.
+
+Utilizar extensão .sass
+Não utiliza chaves e ponto-vírgula.
+Necessário traduzir para um o navegador etender o estilo.
+
+
+Instalação do Sass:
