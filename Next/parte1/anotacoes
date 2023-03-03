@@ -1,0 +1,23 @@
+Next é uma framework que roda em cima do react.Js.
+Aumenta produtividade e ajuda a resolver problemas de perfomance.
+
+Iniciar projeto Next:
+npm install next react react-dom
+npx create-next-app@latest
+
+npm vs Yarn:
+-Ambos são gerenciadores de pacotes e dependências em projetos JavaScript.
+-Pacotes e dependências são utilizados para facilitar o nosso desenvolvimento.
+-O próprio React, uma biblioteca, existem várias dependências, e daria trabalho para atualizar e instalar cada uma, logo o gerenciador de pacotes e denpendencia faz isso para a gente com um comando.
+-Ambos utilizam um arquivo chamado package.json, onde são descritos os pacotes e dependências necessárias para o projeto, com as suas versões.
+-Para criar este arquivo utiliza o comando: 
+npm init 
+yarn init
+-Podemos intalar também um novo pacote ou dependencia no projeto, apenas utilizando o comando:
+npm install <pacote>
+yarn add <pacote>
+
+- Npm está sendo atualmente o gerenciador de pacotes padrão do Node.js
+- Npm possui um site possível de encontrar sua documentação e todas as informações dos pacotes que deseja. Porém com o tempo, começou a apresentar problems de tempo de instalação e instalação, verões diferentes de dependências nas máquinas e até segurança.
+
+- Yans então surgiu prometendo mais segurança e velocidade.
