@@ -33,6 +33,9 @@ export default function HomeScreen() {
         paddingHorizontal: '16px',
       }}
     >
+      <NextLink href={`login`} passHref>
+        Login
+      </NextLink>
       <Image
         src={`/images/avatar.jpg`}
         styleSheet={{

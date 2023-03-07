@@ -1,23 +1,23 @@
-import react from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { Box, TextField, Button } from '@skynexui/components';
 import nookies from 'nookies';
-
+// Cookies, Local Storage e Session Storage nada mais são do que métodos utilizados, via linguagem de programação, para armazenar informações no navegador do visitante do site.
 export default function LoginScreen() {
-  const [senha, setSenha] = react.useState('');
+  const [senha, setSenha] = React.useState('');
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (senha) {
-      nookies.set(null,'SENHA_SECRETA', 'senha', {
-        maxAge: 30 * 24 * 60 * 60,
-        path: '/login',
-      });
-      router.push('/area-logada');
-    } else {
-      alert('Informe uma senha!');
-    }
+      if(senha) {
+        nookies.set(null, 'SENHA_SECRETA', senha, {
+          maxAge: 30 * 24 * 60 * 60,
+          path: '/',
+        });
+        router.push('/area-logada');
+      } else {
+        alert('Informe uma senha!');
+      }
   }
 
   return(
